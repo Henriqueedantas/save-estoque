@@ -36,7 +36,7 @@
         <div class="menu-rodape">
             <strong>Supermercado São José</strong>
             Unidade Centro<br>
-            <span id="data-hoje"></span>
+            Hoje: 12/11/2026
         </div>
 
     </aside>
@@ -56,7 +56,8 @@
         </header>
 
         <main>
-            <form id="form-cadastro">
+            <!-- Formulário de cadastro de produto -->
+            <form action="sucesso-cadastro.html" method="get">
 
                 <div class="form-cabecalho">
                     <h3>Dados do produto</h3>
@@ -67,27 +68,27 @@
 
                     <div class="campo">
                         <label for="nome">Nome do produto <span class="obrigatorio">*</span></label>
-                        <input type="text" id="nome" placeholder="Ex: Leite Integral 1L" maxlength="60" required>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: Leite Integral 1L" maxlength="60" required>
                     </div>
 
                     <div class="linha">
                         <div class="campo">
                             <label for="categoria">Categoria <span class="obrigatorio">*</span></label>
-                            <select id="categoria" required>
+                            <select id="categoria" name="categoria" required>
                                 <option value="">Selecione uma categoria</option>
-                                <option value="Laticínios">Laticínios</option>
-                                <option value="Açougue">Açougue</option>
-                                <option value="Frios">Frios</option>
-                                <option value="Padaria">Padaria</option>
-                                <option value="Hortifrúti">Hortifrúti</option>
-                                <option value="Mercearia">Mercearia</option>
-                                <option value="Bebidas">Bebidas</option>
+                                <option value="laticinios">Laticínios</option>
+                                <option value="acougue">Açougue</option>
+                                <option value="frios">Frios</option>
+                                <option value="padaria">Padaria</option>
+                                <option value="hortifruti">Hortifrúti</option>
+                                <option value="mercearia">Mercearia</option>
+                                <option value="bebidas">Bebidas</option>
                             </select>
                         </div>
 
                         <div class="campo">
                             <label for="unidade">Unidade de medida <span class="obrigatorio">*</span></label>
-                            <select id="unidade" required>
+                            <select id="unidade" name="unidade" required>
                                 <option value="">Selecione</option>
                                 <option value="un">Unidade</option>
                                 <option value="kg">Quilo</option>
@@ -100,30 +101,35 @@
                     <div class="linha">
                         <div class="campo">
                             <label for="quantidade">Quantidade inicial <span class="obrigatorio">*</span></label>
-                            <input type="number" id="quantidade" min="1" max="9999" placeholder="0" required>
+                            <input type="number" id="quantidade" name="quantidade" min="1" max="9999" placeholder="0" required>
                         </div>
 
                         <div class="campo">
                             <label for="minimo">Estoque mínimo <span class="obrigatorio">*</span></label>
-                            <input type="number" id="minimo" min="1" max="9999" placeholder="0" required>
+                            <input type="number" id="minimo" name="minimo" min="1" max="9999" placeholder="0" required>
                         </div>
 
                         <div class="campo">
-                            <label for="custo">Preço de custo <span class="ajuda">(R$)</span> <span class="obrigatorio">*</span></label>
-                            <input type="number" id="custo" min="0.01" step="0.01" placeholder="0.00" required>
+                            <label for="preco">Preço de venda <span class="ajuda">(R$)</span> <span class="obrigatorio">*</span></label>
+                            <input type="number" id="preco" name="preco" min="0.01" step="0.01" placeholder="0.00" required>
                         </div>
                     </div>
 
                     <div class="linha">
                         <div class="campo">
                             <label for="validade">Data de validade <span class="obrigatorio">*</span></label>
-                            <input type="date" id="validade" required>
+                            <input type="date" id="validade" name="validade" min="2026-11-12" required>
                         </div>
 
                         <div class="campo">
                             <label for="fornecedor">Fornecedor <span class="ajuda">(opcional)</span></label>
-                            <input type="text" id="fornecedor" placeholder="Ex: Distribuidora Costa" maxlength="60">
+                            <input type="text" id="fornecedor" name="fornecedor" placeholder="Ex: Distribuidora Costa" maxlength="60">
                         </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="observacao">Observações <span class="ajuda">(opcional)</span></label>
+                        <textarea id="observacao" name="observacao" rows="3" maxlength="200" placeholder="Informações sobre armazenamento, lote, temperatura..."></textarea>
                     </div>
 
                 </div>
@@ -140,8 +146,9 @@
                 <ul>
                     <li>A quantidade e o estoque mínimo aceitam apenas números inteiros maiores que zero.</li>
                     <li>O preço aceita centavos por causa do atributo <strong>step</strong> igual a 0.01.</li>
-                    <li>A data de validade não permite datas anteriores a hoje.</li>
-                    <li>Se um campo obrigatório ficar vazio, o próprio navegador bloqueia o envio.</li>
+                    <li>A data de validade não permite datas anteriores a hoje, porque não faz sentido cadastrar produto já vencido.</li>
+                    <li>Se um campo obrigatório ficar vazio, o próprio navegador bloqueia o envio e exibe o aviso.</li>
+                    <li>Toda a validação é feita pelo HTML, sem nenhuma linha de JavaScript.</li>
                 </ul>
             </details>
         </main>
@@ -154,41 +161,6 @@
     </div>
 
 </div>
-
-<script src="script.js"></script>
-<script>
-// Mostra a data de hoje no rodapé do menu
-document.getElementById("data-hoje").textContent = "Hoje: " + dataParaTexto(dataComDiferenca(0));
-
-// A data de validade não pode ser anterior a hoje
-document.getElementById("validade").setAttribute("min", dataComDiferenca(0));
-
-// Salva o produto quando o formulário é enviado
-document.getElementById("form-cadastro").onsubmit = function (evento) {
-    evento.preventDefault();
-
-    var produtos = carregarProdutos();
-
-    var novoProduto = {
-        codigo: proximoCodigo(produtos),
-        nome: document.getElementById("nome").value,
-        categoria: document.getElementById("categoria").value,
-        quantidade: parseInt(document.getElementById("quantidade").value),
-        unidade: document.getElementById("unidade").value,
-        minimo: parseInt(document.getElementById("minimo").value),
-        custo: parseFloat(document.getElementById("custo").value),
-        validade: document.getElementById("validade").value
-    };
-
-    produtos.push(novoProduto);
-    salvarProdutos(produtos);
-
-    // guarda o código para mostrar na tela de confirmação
-    localStorage.setItem("save_ultimo_cadastro", novoProduto.codigo + " - " + novoProduto.nome);
-
-    window.location.href = "sucesso-cadastro.html";
-};
-</script>
 
 </body>
 </html>

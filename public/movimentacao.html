@@ -36,7 +36,7 @@
         <div class="menu-rodape">
             <strong>Supermercado São José</strong>
             Unidade Centro<br>
-            <span id="data-hoje"></span>
+            Hoje: 12/11/2026
         </div>
 
     </aside>
@@ -56,7 +56,8 @@
         </header>
 
         <main>
-            <form id="form-entrada">
+            <!-- Formulário de entrada de mercadoria -->
+            <form action="sucesso-movimentacao.html" method="get">
 
                 <div class="form-cabecalho">
                     <h3>Entrada de mercadoria</h3>
@@ -64,41 +65,59 @@
                 </div>
 
                 <div class="form-corpo">
+
                     <div class="linha">
                         <div class="campo">
                             <label for="produto-entrada">Produto <span class="obrigatorio">*</span></label>
-                            <select id="produto-entrada" class="lista-produtos" required>
-                                <option value="">Selecione o produto</option>
+                            <select id="produto-entrada" name="produto" required>
+                            <option value="">Selecione o produto</option>
+                            <option value="P001">P001 &ndash; Leite Integral 1L</option>
+                            <option value="P002">P002 &ndash; Iogurte Natural 170g</option>
+                            <option value="P003">P003 &ndash; Peito de Frango</option>
+                            <option value="P004">P004 &ndash; Pão de Forma 500g</option>
+                            <option value="P005">P005 &ndash; Queijo Mussarela</option>
+                            <option value="P006">P006 &ndash; Presunto Fatiado</option>
+                            <option value="P007">P007 &ndash; Manteiga 200g</option>
+                            <option value="P008">P008 &ndash; Ovos Dúzia</option>
+                            <option value="P009">P009 &ndash; Linguiça Toscana</option>
+                            <option value="P010">P010 &ndash; Requeijão 200g</option>
                             </select>
                         </div>
 
                         <div class="campo">
                             <label for="qtd-entrada">Quantidade recebida <span class="obrigatorio">*</span></label>
-                            <input type="number" id="qtd-entrada" min="1" max="9999" placeholder="0" required>
+                            <input type="number" id="qtd-entrada" name="quantidade" min="1" max="9999" placeholder="0" required>
                         </div>
                     </div>
 
                     <div class="linha">
                         <div class="campo">
+                            <label for="validade-lote">Validade do lote <span class="obrigatorio">*</span></label>
+                            <input type="date" id="validade-lote" name="validade" min="2026-11-12" required>
+                        </div>
+
+                        <div class="campo">
                             <label for="nota">Nota fiscal <span class="ajuda">(opcional)</span></label>
-                            <input type="text" id="nota" placeholder="Ex: 45812" maxlength="20">
+                            <input type="text" id="nota" name="nota" placeholder="Ex: 45812" maxlength="20">
                         </div>
 
                         <div class="campo">
                             <label for="responsavel-entrada">Responsável <span class="obrigatorio">*</span></label>
-                            <input type="text" id="responsavel-entrada" placeholder="Nome do funcionário" maxlength="40" required>
+                            <input type="text" id="responsavel-entrada" name="responsavel" placeholder="Nome do funcionário" maxlength="40" required>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="form-rodape">
                     <button type="submit">Registrar entrada</button>
-                    <span class="nota-rodape">A quantidade será somada ao estoque</span>
+                    <span class="nota-rodape">A quantidade será somada ao estoque atual</span>
                 </div>
 
             </form>
 
-            <form id="form-saida">
+            <!-- Formulário de saída de mercadoria -->
+            <form action="sucesso-movimentacao.html" method="get">
 
                 <div class="form-cabecalho">
                     <h3>Saída de mercadoria</h3>
@@ -106,43 +125,55 @@
                 </div>
 
                 <div class="form-corpo">
+
                     <div class="linha">
                         <div class="campo">
                             <label for="produto-saida">Produto <span class="obrigatorio">*</span></label>
-                            <select id="produto-saida" class="lista-produtos" required>
-                                <option value="">Selecione o produto</option>
+                            <select id="produto-saida" name="produto" required>
+                            <option value="">Selecione o produto</option>
+                            <option value="P001">P001 &ndash; Leite Integral 1L</option>
+                            <option value="P002">P002 &ndash; Iogurte Natural 170g</option>
+                            <option value="P003">P003 &ndash; Peito de Frango</option>
+                            <option value="P004">P004 &ndash; Pão de Forma 500g</option>
+                            <option value="P005">P005 &ndash; Queijo Mussarela</option>
+                            <option value="P006">P006 &ndash; Presunto Fatiado</option>
+                            <option value="P007">P007 &ndash; Manteiga 200g</option>
+                            <option value="P008">P008 &ndash; Ovos Dúzia</option>
+                            <option value="P009">P009 &ndash; Linguiça Toscana</option>
+                            <option value="P010">P010 &ndash; Requeijão 200g</option>
                             </select>
                         </div>
 
                         <div class="campo">
                             <label for="qtd-saida">Quantidade retirada <span class="obrigatorio">*</span></label>
-                            <input type="number" id="qtd-saida" min="1" max="9999" placeholder="0" required>
+                            <input type="number" id="qtd-saida" name="quantidade" min="1" max="9999" placeholder="0" required>
                         </div>
                     </div>
 
                     <div class="linha">
                         <div class="campo">
                             <label for="motivo">Motivo da saída <span class="obrigatorio">*</span></label>
-                            <select id="motivo" required>
+                            <select id="motivo" name="motivo" required>
                                 <option value="">Selecione o motivo</option>
-                                <option value="Reposição de prateleira">Reposição de prateleira</option>
-                                <option value="Venda">Venda</option>
-                                <option value="Descarte por vencimento">Descarte por vencimento</option>
-                                <option value="Avaria ou quebra">Avaria ou quebra</option>
-                                <option value="Devolução ao fornecedor">Devolução ao fornecedor</option>
+                                <option value="prateleira">Reposição de prateleira</option>
+                                <option value="venda">Venda</option>
+                                <option value="vencido">Descarte por vencimento</option>
+                                <option value="avaria">Avaria ou quebra</option>
+                                <option value="devolucao">Devolução ao fornecedor</option>
                             </select>
                         </div>
 
                         <div class="campo">
                             <label for="responsavel-saida">Responsável <span class="obrigatorio">*</span></label>
-                            <input type="text" id="responsavel-saida" placeholder="Nome do funcionário" maxlength="40" required>
+                            <input type="text" id="responsavel-saida" name="responsavel" placeholder="Nome do funcionário" maxlength="40" required>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="form-rodape">
                     <button type="submit">Registrar saída</button>
-                    <span class="nota-rodape">A quantidade será subtraída do estoque</span>
+                    <span class="nota-rodape">A quantidade será subtraída do estoque atual</span>
                 </div>
 
             </form>
@@ -151,8 +182,8 @@
 
             <div class="quadro">
                 <div class="quadro-titulo">
-                    Histórico
-                    <span class="contagem" id="contagem-historico"></span>
+                    Histórico recente
+                    <span class="contagem">5 lançamento(s)</span>
                 </div>
                 <div class="tabela-rolagem">
                     <table>
@@ -165,7 +196,43 @@
                                 <th class="esconde-celular">Responsável</th>
                             </tr>
                         </thead>
-                        <tbody id="corpo-historico"></tbody>
+                        <tbody>
+                            <tr>
+                                <td>12/11/2026</td>
+                                <td class="destaque">Ovos Dúzia</td>
+                                <td><span class="etiqueta ok">Entrada</span></td>
+                                <td>30 un</td>
+                                <td class="esconde-celular">Carlos Souza</td>
+                            </tr>
+                            <tr>
+                                <td>11/11/2026</td>
+                                <td class="destaque">Leite Integral 1L</td>
+                                <td><span class="etiqueta neutro">Saída</span></td>
+                                <td>12 un</td>
+                                <td class="esconde-celular">Marina Alves</td>
+                            </tr>
+                            <tr>
+                                <td>11/11/2026</td>
+                                <td class="destaque">Peito de Frango</td>
+                                <td><span class="etiqueta ok">Entrada</span></td>
+                                <td>20 kg</td>
+                                <td class="esconde-celular">Carlos Souza</td>
+                            </tr>
+                            <tr>
+                                <td>10/11/2026</td>
+                                <td class="destaque">Presunto Fatiado</td>
+                                <td><span class="etiqueta neutro">Saída</span></td>
+                                <td>3 kg</td>
+                                <td class="esconde-celular">Marina Alves</td>
+                            </tr>
+                            <tr>
+                                <td>10/11/2026</td>
+                                <td class="destaque">Requeijão 200g</td>
+                                <td><span class="etiqueta ok">Entrada</span></td>
+                                <td>28 un</td>
+                                <td class="esconde-celular">João Pedro</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -179,126 +246,6 @@
     </div>
 
 </div>
-
-<script src="script.js"></script>
-<script>
-// Mostra a data de hoje no rodapé do menu
-document.getElementById("data-hoje").textContent = "Hoje: " + dataParaTexto(dataComDiferenca(0));
-
-// Preenche os dois campos de seleção com os produtos cadastrados
-function preencherListas() {
-    var produtos = carregarProdutos();
-    var opcoes = '<option value="">Selecione o produto</option>';
-
-    for (var i = 0; i < produtos.length; i++) {
-        opcoes = opcoes + '<option value="' + produtos[i].codigo + '">' +
-                 produtos[i].codigo + ' - ' + produtos[i].nome + '</option>';
-    }
-
-    var listas = document.querySelectorAll(".lista-produtos");
-    for (var j = 0; j < listas.length; j++) {
-        listas[j].innerHTML = opcoes;
-    }
-}
-
-// Soma ou subtrai a quantidade do produto escolhido
-function alterarEstoque(codigo, quantidade) {
-    var produtos = carregarProdutos();
-
-    for (var i = 0; i < produtos.length; i++) {
-        if (produtos[i].codigo === codigo) {
-            produtos[i].quantidade = produtos[i].quantidade + quantidade;
-
-            // o estoque nunca fica negativo
-            if (produtos[i].quantidade < 0) {
-                produtos[i].quantidade = 0;
-            }
-
-            salvarProdutos(produtos);
-            return produtos[i].nome;
-        }
-    }
-    return "";
-}
-
-// Mostra o histórico de entradas e saídas
-function mostrarHistorico() {
-    var movimentacoes = carregarMovimentacoes();
-    var linhas = "";
-
-    for (var i = 0; i < movimentacoes.length; i++) {
-        var m = movimentacoes[i];
-        var cor = "ok";
-        if (m.tipo === "Saída") {
-            cor = "neutro";
-        }
-
-        linhas = linhas +
-            '<tr>' +
-            '<td>' + m.data + '</td>' +
-            '<td class="destaque">' + m.produto + '</td>' +
-            '<td><span class="etiqueta ' + cor + '">' + m.tipo + '</span></td>' +
-            '<td>' + m.quantidade + '</td>' +
-            '<td class="esconde-celular">' + m.responsavel + '</td>' +
-            '</tr>';
-    }
-
-    if (linhas === "") {
-        linhas = '<tr><td colspan="5">Nenhuma movimentação registrada ainda.</td></tr>';
-    }
-
-    document.getElementById("corpo-historico").innerHTML = linhas;
-    document.getElementById("contagem-historico").textContent = movimentacoes.length + " lançamento(s)";
-}
-
-// Entrada de mercadoria
-document.getElementById("form-entrada").onsubmit = function (evento) {
-    evento.preventDefault();
-
-    var codigo = document.getElementById("produto-entrada").value;
-    var quantidade = parseInt(document.getElementById("qtd-entrada").value);
-    var responsavel = document.getElementById("responsavel-entrada").value;
-
-    var nome = alterarEstoque(codigo, quantidade);
-
-    registrarMovimentacao({
-        data: dataParaTexto(dataComDiferenca(0)),
-        produto: nome,
-        tipo: "Entrada",
-        quantidade: quantidade,
-        responsavel: responsavel
-    });
-
-    localStorage.setItem("save_ultima_mov", "Entrada de " + quantidade + " de " + nome);
-    window.location.href = "sucesso-movimentacao.html";
-};
-
-// Saída de mercadoria
-document.getElementById("form-saida").onsubmit = function (evento) {
-    evento.preventDefault();
-
-    var codigo = document.getElementById("produto-saida").value;
-    var quantidade = parseInt(document.getElementById("qtd-saida").value);
-    var responsavel = document.getElementById("responsavel-saida").value;
-    var motivo = document.getElementById("motivo").value;
-
-    var nome = alterarEstoque(codigo, quantidade * -1);
-
-    registrarMovimentacao({
-        data: dataParaTexto(dataComDiferenca(0)),
-        produto: nome,
-        tipo: "Saída",
-        quantidade: quantidade,
-        responsavel: responsavel
-    });
-
-    localStorage.setItem("save_ultima_mov", "Saída de " + quantidade + " de " + nome + " (" + motivo + ")");
-    window.location.href = "sucesso-movimentacao.html";
-};
-
-preencherListas();
-mostrarHistorico();
-</script>
 
 </body>
 </html>

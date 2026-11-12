@@ -36,7 +36,7 @@
         <div class="menu-rodape">
             <strong>Supermercado São José</strong>
             Unidade Centro<br>
-            <span id="data-hoje"></span>
+            Hoje: 12/11/2026
         </div>
 
     </aside>
@@ -47,7 +47,7 @@
         <header class="topo">
             <div>
                 <h2>Movimentação Registrada</h2>
-                <p class="subtitulo">Confirmação do lançamento</p>
+                <p class="subtitulo">Confirmação do lançamento em 12/11/2026</p>
             </div>
             <div class="usuario">
                 <span class="nome">Carlos Daniel</span>
@@ -59,16 +59,19 @@
             <div class="sucesso">
                 <span class="selo">&#10003;</span>
                 <h3>Movimentação registrada com sucesso</h3>
-                <p id="texto-mov">O lançamento foi gravado no histórico e a quantidade do produto foi atualizada.</p>
+                <p>
+                    O lançamento foi gravado no histórico e a quantidade do produto
+                    foi atualizada no estoque.
+                </p>
 
                 <div class="botoes">
-                    <a href="movimentacao.html" class="botao-link">Registrar outra</a>
+                    <a href="movimentacao.html" class="botao-link">Registrar outra movimentação</a>
                     <a href="produtos.html" class="botao-link botao-secundario">Ver estoque atualizado</a>
                     <a href="index.html" class="botao-link botao-secundario">Voltar ao painel</a>
                 </div>
 
                 <ul class="passos">
-                    <li>A quantidade já foi somada ou subtraída do estoque do produto.</li>
+                    <li>Confira se a quantidade em estoque ficou igual à contagem física.</li>
                     <li>Em caso de descarte por vencimento, guarde o comprovante para a gerência.</li>
                     <li>Produtos abaixo do mínimo aparecem no filtro Estoque crítico.</li>
                 </ul>
@@ -83,20 +86,6 @@
     </div>
 
 </div>
-
-<script src="script.js"></script>
-<script>
-// Mostra a data de hoje no rodapé do menu
-document.getElementById("data-hoje").textContent = "Hoje: " + dataParaTexto(dataComDiferenca(0));
-
-// Mostra qual movimentação acabou de ser registrada
-var ultima = localStorage.getItem("save_ultima_mov");
-
-if (ultima) {
-    document.getElementById("texto-mov").innerHTML =
-        "<strong>" + ultima + "</strong>.<br>O lançamento foi gravado no histórico e o estoque já está atualizado.";
-}
-</script>
 
 </body>
 </html>

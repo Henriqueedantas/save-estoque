@@ -22,38 +22,30 @@ ir para promoção, permitindo recuperar parte do valor antes da perda.
 
 ## Funcionalidades
 
-- **Painel de controle** — totais calculados a partir do estoque atual
-- **Cadastro de produtos** — o produto é salvo e passa a aparecer na listagem,
-  nos alertas e nos totais, com código gerado automaticamente
-- **Consulta e filtros** — filtro por categoria e por estoque crítico, aplicado
-  na própria tela
-- **Movimentação** — entradas somam e saídas subtraem do estoque, com histórico
-  dos lançamentos
-- **Alertas de validade** — classificação automática comparando a validade com a
-  data atual, com prejuízo estimado e desconto sugerido
+- **Painel de controle** — total de produtos, itens em estoque, vencidos e vencendo
+- **Consulta de produtos** — nível de estoque, validade e situação de cada item
+- **Filtros por categoria** — Laticínios, Açougue, Frios e Estoque crítico
+- **Cadastro de produtos** — com validação nativa de formulário
+- **Movimentação** — entrada e saída por reposição, venda, descarte ou devolução
+- **Alertas de validade** — vencidos e vencendo em até 7 dias, com estimativa de
+  prejuízo e desconto sugerido
 - **Telas de confirmação** — retorno após cada operação
-- **Layout responsivo** — menu lateral no computador, barra no topo no celular
-- **Restaurar demonstração** — botão na tela Sobre que devolve o sistema aos dez
-  produtos originais
+- **Layout responsivo** — menu lateral no desktop, barra no topo no celular
 
 ## Tecnologias
 
-Desenvolvido com **HTML5**, **CSS3** e **JavaScript**, sem frameworks ou
-bibliotecas externas.
+Desenvolvido exclusivamente com **HTML5 e CSS3**, sem JavaScript, frameworks ou
+bibliotecas externas — restrição definida pelo enunciado do trabalho.
 
 | Recurso | Onde foi aplicado |
 |---|---|
 | HTML semântico | `aside`, `header`, `nav`, `main`, `footer` |
 | Validação nativa | `required`, `min`, `max`, `step`, `maxlength` |
-| Tag `meter` | Barra de nível comparada com o estoque mínimo do produto |
-| `details` / `summary` | Blocos que abrem e fecham |
+| Tag `meter` | Barra de nível de estoque, colorida pelo navegador |
+| `details` / `summary` | Blocos que abrem e fecham sem JavaScript |
 | Flexbox | Layout de duas colunas, cards, filtros e formulários |
 | Media queries | Pontos de quebra em 900px e 540px |
 | Pseudo-elemento `::before` | Faixa colorida na lateral dos cards |
-| Objeto `Date` | Cálculo de quantos dias faltam para cada produto vencer |
-| Manipulação do DOM | Tabelas e totais montados a partir dos dados |
-| `localStorage` | Armazenamento dos produtos e das movimentações |
-| Eventos de formulário | Cadastro e movimentação tratados no envio |
 | Google Fonts | Tipografia Inter, com Arial como alternativa |
 
 Hospedagem em **Cloudflare Workers**, servindo os estáticos de `public/`.
@@ -63,16 +55,19 @@ Hospedagem em **Cloudflare Workers**, servindo os estáticos de `public/`.
 ```
 save-estoque/
 ├── public/
-│   ├── index.html                  # painel de controle
-│   ├── produtos.html               # listagem com filtros
-│   ├── cadastrar.html              # cadastro de produto
-│   ├── movimentacao.html           # entrada e saída de mercadoria
-│   ├── alertas.html                # alertas de validade
-│   ├── sucesso-cadastro.html       # confirmação
-│   ├── sucesso-movimentacao.html   # confirmação
-│   ├── sobre.html                  # documentação do projeto
-│   ├── estilo.css                  # folha de estilo compartilhada
-│   └── script.js                   # funções do sistema
+│   ├── index.html                      # painel de controle
+│   ├── produtos.html                   # listagem completa
+│   ├── produtos-laticinios.html        # filtro por categoria
+│   ├── produtos-acougue.html           # filtro por categoria
+│   ├── produtos-frios.html             # filtro por categoria
+│   ├── produtos-estoque-critico.html   # filtro por reposição
+│   ├── cadastrar.html                  # cadastro de produto
+│   ├── movimentacao.html               # entrada e saída
+│   ├── alertas.html                    # alertas de validade
+│   ├── sucesso-cadastro.html           # confirmação
+│   ├── sucesso-movimentacao.html       # confirmação
+│   ├── sobre.html                      # documentação do projeto
+│   └── estilo.css                      # folha de estilo compartilhada
 ├── DEPLOY.md
 ├── package.json
 └── wrangler.toml
@@ -93,18 +88,14 @@ npm run deploy   # publica no Cloudflare Workers
 
 Os passos completos de publicação estão em [DEPLOY.md](DEPLOY.md).
 
-## Como os dados são guardados
+## Limitações da versão atual
 
-O sistema usa o `localStorage` do navegador. Os produtos cadastrados e as
-movimentações ficam gravados na máquina do usuário e continuam lá depois de
-fechar e reabrir o navegador.
-
-A limitação é que o armazenamento pertence ao navegador daquele computador. Em
-um sistema de produção os dados ficariam em um banco no servidor, acessíveis de
-qualquer máquina e por vários usuários ao mesmo tempo.
-
-Para zerar a demonstração, use o botão **Restaurar dados de demonstração** na
-tela Sobre.
+- Os dados são fixos no HTML, para demonstrar o funcionamento das telas
+- Não há persistência entre sessões, o que exigiria banco de dados e linguagem no
+  servidor
+- Os formulários validam e confirmam o envio, mas não gravam o registro
+- A persistência poderia ser implementada em uma próxima etapa com PHP e MySQL,
+  aproveitando a mesma interface
 
 ## Equipe
 

@@ -36,7 +36,7 @@
         <div class="menu-rodape">
             <strong>Supermercado São José</strong>
             Unidade Centro<br>
-            <span id="data-hoje"></span>
+            Hoje: 12/11/2026
         </div>
 
     </aside>
@@ -47,7 +47,7 @@
         <header class="topo">
             <div>
                 <h2>Painel de Controle</h2>
-                <p class="subtitulo">Posição atual do estoque</p>
+                <p class="subtitulo">Posição do estoque em 12/11/2026</p>
             </div>
             <div class="usuario">
                 <span class="nome">Carlos Daniel</span>
@@ -59,34 +59,36 @@
             <div class="cards">
                 <div class="card">
                     <span class="rotulo">Produtos cadastrados</span>
-                    <span class="numero" id="total-produtos">-</span>
-                    <span class="nota" id="total-categorias"></span>
+                    <span class="numero">10</span>
+                    <span class="nota">em 6 categorias</span>
                 </div>
                 <div class="card">
                     <span class="rotulo">Itens em estoque</span>
-                    <span class="numero" id="total-itens">-</span>
+                    <span class="numero">302</span>
                     <span class="nota">unidades e quilos somados</span>
                 </div>
                 <div class="card card-alerta">
                     <span class="rotulo">Vencendo em 7 dias</span>
-                    <span class="numero" id="total-vencendo">-</span>
+                    <span class="numero">4</span>
                     <span class="nota">indicados para promoção</span>
                 </div>
                 <div class="card card-perigo">
                     <span class="rotulo">Produtos vencidos</span>
-                    <span class="numero" id="total-vencidos">-</span>
-                    <span class="nota" id="total-prejuizo"></span>
+                    <span class="numero">2</span>
+                    <span class="nota">R$ 349,40 de prejuízo</span>
                 </div>
             </div>
 
             <h3>Produtos que precisam de atenção</h3>
 
-            <div id="aviso-vencidos"></div>
+            <div class="aviso aviso-perigo">
+                <strong>Ação imediata:</strong> existem 2 produtos vencidos na prateleira. Devem ser retirados hoje e lançados como descarte.
+            </div>
 
             <div class="quadro">
                 <div class="quadro-titulo">
                     Prioridade de hoje
-                    <span class="contagem" id="contagem-prioridade"></span>
+                    <span class="contagem">6 produto(s)</span>
                 </div>
                 <div class="tabela-rolagem">
                     <table>
@@ -95,12 +97,61 @@
                                 <th class="esconde-celular">Código</th>
                                 <th>Produto</th>
                                 <th class="esconde-celular">Categoria</th>
-                                <th>Estoque</th>
+                                <th class="esconde-celular">Estoque</th>
                                 <th>Validade</th>
                                 <th>Situação</th>
                             </tr>
                         </thead>
-                        <tbody id="corpo-prioridade"></tbody>
+                        <tbody>
+                            <tr>
+                                <td class="codigo esconde-celular">P006</td>
+                                <td class="destaque">Presunto Fatiado</td>
+                                <td class="esconde-celular">Frios</td>
+                                <td class="esconde-celular">5 kg</td>
+                                <td>09/11/2026</td>
+                                <td><span class="etiqueta vencido">Vencido</span></td>
+                            </tr>
+                            <tr>
+                                <td class="codigo esconde-celular">P004</td>
+                                <td class="destaque">Pão de Forma 500g</td>
+                                <td class="esconde-celular">Padaria</td>
+                                <td class="esconde-celular">22 un</td>
+                                <td>10/11/2026</td>
+                                <td><span class="etiqueta vencido">Vencido</span></td>
+                            </tr>
+                            <tr>
+                                <td class="codigo esconde-celular">P003</td>
+                                <td class="destaque">Peito de Frango</td>
+                                <td class="esconde-celular">Açougue</td>
+                                <td class="esconde-celular">15 kg</td>
+                                <td>14/11/2026</td>
+                                <td><span class="etiqueta alerta">2 dias</span></td>
+                            </tr>
+                            <tr>
+                                <td class="codigo esconde-celular">P005</td>
+                                <td class="destaque">Queijo Mussarela</td>
+                                <td class="esconde-celular">Frios</td>
+                                <td class="esconde-celular">8 kg</td>
+                                <td>16/11/2026</td>
+                                <td><span class="etiqueta alerta">4 dias</span></td>
+                            </tr>
+                            <tr>
+                                <td class="codigo esconde-celular">P009</td>
+                                <td class="destaque">Linguiça Toscana</td>
+                                <td class="esconde-celular">Açougue</td>
+                                <td class="esconde-celular">12 kg</td>
+                                <td>17/11/2026</td>
+                                <td><span class="etiqueta alerta">5 dias</span></td>
+                            </tr>
+                            <tr>
+                                <td class="codigo esconde-celular">P001</td>
+                                <td class="destaque">Leite Integral 1L</td>
+                                <td class="esconde-celular">Laticínios</td>
+                                <td class="esconde-celular">48 un</td>
+                                <td>18/11/2026</td>
+                                <td><span class="etiqueta alerta">6 dias</span></td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -125,87 +176,6 @@
     </div>
 
 </div>
-
-<script src="script.js"></script>
-<script>
-// Mostra a data de hoje no rodapé do menu
-document.getElementById("data-hoje").textContent = "Hoje: " + dataParaTexto(dataComDiferenca(0));
-
-// Monta o painel com os números do estoque
-var produtos = carregarProdutos();
-
-var totalItens = 0;
-var vencidos = 0;
-var vencendo = 0;
-var prejuizo = 0;
-var categorias = [];
-var precisamAtencao = [];
-
-for (var i = 0; i < produtos.length; i++) {
-    var produto = produtos[i];
-    var situacao = situacaoDoProduto(produto);
-
-    totalItens = totalItens + produto.quantidade;
-
-    if (categorias.indexOf(produto.categoria) === -1) {
-        categorias.push(produto.categoria);
-    }
-
-    if (situacao.classe === "vencido") {
-        vencidos = vencidos + 1;
-        prejuizo = prejuizo + (produto.quantidade * produto.custo);
-    }
-    if (situacao.classe === "alerta") {
-        vencendo = vencendo + 1;
-    }
-    if (situacao.classe !== "ok") {
-        precisamAtencao.push(produto);
-    }
-}
-
-document.getElementById("total-produtos").textContent = produtos.length;
-document.getElementById("total-categorias").textContent = "em " + categorias.length + " categorias";
-document.getElementById("total-itens").textContent = totalItens;
-document.getElementById("total-vencendo").textContent = vencendo;
-document.getElementById("total-vencidos").textContent = vencidos;
-document.getElementById("total-prejuizo").textContent = emReais(prejuizo) + " de prejuízo";
-
-// Aviso no topo quando existe produto vencido
-if (vencidos > 0) {
-    document.getElementById("aviso-vencidos").innerHTML =
-        '<div class="aviso aviso-perigo"><strong>Ação imediata:</strong> existem ' + vencidos +
-        ' produto(s) vencidos na prateleira. Devem ser retirados hoje e lançados como descarte.</div>';
-}
-
-// Ordena deixando o mais urgente em cima
-precisamAtencao.sort(function (a, b) {
-    return diasParaVencer(a.validade) - diasParaVencer(b.validade);
-});
-
-var linhas = "";
-
-for (var j = 0; j < precisamAtencao.length; j++) {
-    var item = precisamAtencao[j];
-    var sit = situacaoDoProduto(item);
-
-    linhas = linhas +
-        '<tr>' +
-        '<td class="codigo esconde-celular">' + item.codigo + '</td>' +
-        '<td class="destaque">' + item.nome + '</td>' +
-        '<td class="esconde-celular">' + item.categoria + '</td>' +
-        '<td>' + item.quantidade + ' ' + item.unidade + '</td>' +
-        '<td>' + dataParaTexto(item.validade) + '</td>' +
-        '<td><span class="etiqueta ' + sit.classe + '">' + sit.texto + '</span></td>' +
-        '</tr>';
-}
-
-if (linhas === "") {
-    linhas = '<tr><td colspan="6">Nenhum produto precisa de atenção no momento.</td></tr>';
-}
-
-document.getElementById("corpo-prioridade").innerHTML = linhas;
-document.getElementById("contagem-prioridade").textContent = precisamAtencao.length + " produto(s)";
-</script>
 
 </body>
 </html>

@@ -36,7 +36,7 @@
         <div class="menu-rodape">
             <strong>Supermercado São José</strong>
             Unidade Centro<br>
-            <span id="data-hoje"></span>
+            Hoje: 12/11/2026
         </div>
 
     </aside>
@@ -47,7 +47,7 @@
         <header class="topo">
             <div>
                 <h2>Alertas de Validade</h2>
-                <p class="subtitulo">Análise automática pela data de hoje</p>
+                <p class="subtitulo">Análise realizada em 12/11/2026</p>
             </div>
             <div class="usuario">
                 <span class="nome">Carlos Daniel</span>
@@ -59,17 +59,17 @@
             <div class="cards">
                 <div class="card card-perigo">
                     <span class="rotulo">Vencidos</span>
-                    <span class="numero" id="qtd-vencidos">-</span>
+                    <span class="numero">2</span>
                     <span class="nota">retirar da prateleira</span>
                 </div>
                 <div class="card card-alerta">
                     <span class="rotulo">Vencendo em 7 dias</span>
-                    <span class="numero" id="qtd-vencendo">-</span>
+                    <span class="numero">4</span>
                     <span class="nota">enviar para promoção</span>
                 </div>
                 <div class="card card-perigo">
                     <span class="rotulo">Prejuízo estimado</span>
-                    <span class="numero" id="valor-prejuizo">-</span>
+                    <span class="numero">R$ 349,40</span>
                     <span class="nota">valor de custo das perdas</span>
                 </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="quadro">
                 <div class="quadro-titulo">
                     Perda já confirmada
-                    <span class="contagem" id="contagem-vencidos"></span>
+                    <span class="contagem">2 produto(s)</span>
                 </div>
                 <div class="tabela-rolagem">
                     <table>
@@ -93,11 +93,28 @@
                                 <th>Produto</th>
                                 <th>Validade</th>
                                 <th class="esconde-celular">Dias vencido</th>
-                                <th>Estoque</th>
+                                <th class="esconde-celular">Estoque</th>
                                 <th>Perda</th>
                             </tr>
                         </thead>
-                        <tbody id="corpo-vencidos"></tbody>
+                        <tbody>
+                            <tr>
+                                <td class="codigo esconde-celular">P006</td>
+                                <td class="destaque">Presunto Fatiado</td>
+                                <td>09/11/2026</td>
+                                <td class="esconde-celular">3 dias</td>
+                                <td class="esconde-celular">5 kg</td>
+                                <td class="destaque">R$ 174,50</td>
+                            </tr>
+                            <tr>
+                                <td class="codigo esconde-celular">P004</td>
+                                <td class="destaque">Pão de Forma 500g</td>
+                                <td>10/11/2026</td>
+                                <td class="esconde-celular">2 dias</td>
+                                <td class="esconde-celular">22 un</td>
+                                <td class="destaque">R$ 174,90</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -111,7 +128,7 @@
             <div class="quadro">
                 <div class="quadro-titulo">
                     Janela de ação
-                    <span class="contagem" id="contagem-vencendo"></span>
+                    <span class="contagem">4 produto(s)</span>
                 </div>
                 <div class="tabela-rolagem">
                     <table>
@@ -125,7 +142,40 @@
                                 <th class="esconde-celular">Desconto sugerido</th>
                             </tr>
                         </thead>
-                        <tbody id="corpo-vencendo"></tbody>
+                        <tbody>
+                            <tr>
+                                <td class="codigo esconde-celular">P003</td>
+                                <td class="destaque">Peito de Frango</td>
+                                <td>14/11/2026</td>
+                                <td><span class="etiqueta vencido">2 dias</span></td>
+                                <td class="esconde-celular">15 kg</td>
+                                <td class="esconde-celular">40%</td>
+                            </tr>
+                            <tr>
+                                <td class="codigo esconde-celular">P005</td>
+                                <td class="destaque">Queijo Mussarela</td>
+                                <td>16/11/2026</td>
+                                <td><span class="etiqueta alerta">4 dias</span></td>
+                                <td class="esconde-celular">8 kg</td>
+                                <td class="esconde-celular">25%</td>
+                            </tr>
+                            <tr>
+                                <td class="codigo esconde-celular">P009</td>
+                                <td class="destaque">Linguiça Toscana</td>
+                                <td>17/11/2026</td>
+                                <td><span class="etiqueta alerta">5 dias</span></td>
+                                <td class="esconde-celular">12 kg</td>
+                                <td class="esconde-celular">20%</td>
+                            </tr>
+                            <tr>
+                                <td class="codigo esconde-celular">P001</td>
+                                <td class="destaque">Leite Integral 1L</td>
+                                <td>18/11/2026</td>
+                                <td><span class="etiqueta alerta">6 dias</span></td>
+                                <td class="esconde-celular">48 un</td>
+                                <td class="esconde-celular">15%</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -148,7 +198,16 @@
                     <li>Aplicar desconto progressivo conforme o prazo diminui.</li>
                     <li>Transferir para a gôndola de promoção, em local de maior circulação.</li>
                     <li>Colocar o produto mais antigo à frente na prateleira.</li>
-                    <li>Suspender novos pedidos do item até reduzir o estoque.</li>
+                    <li>Suspender novos pedidos do item ao fornecedor até reduzir o estoque.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Como o prejuízo estimado é calculado</summary>
+                <ul>
+                    <li>Multiplica-se a quantidade perdida pelo preço de custo de cada produto.</li>
+                    <li>Somam-se as perdas de todos os itens vencidos no período.</li>
+                    <li>O valor mostra à gerência quanto o controle de validade pode economizar.</li>
                 </ul>
             </details>
         </main>
@@ -161,96 +220,6 @@
     </div>
 
 </div>
-
-<script src="script.js"></script>
-<script>
-// Mostra a data de hoje no rodapé do menu
-document.getElementById("data-hoje").textContent = "Hoje: " + dataParaTexto(dataComDiferenca(0));
-
-// Separa os produtos vencidos dos que estão vencendo
-var produtos = carregarProdutos();
-
-var vencidos = [];
-var vencendo = [];
-var prejuizo = 0;
-
-for (var i = 0; i < produtos.length; i++) {
-    var situacao = situacaoDoProduto(produtos[i]);
-
-    if (situacao.classe === "vencido") {
-        vencidos.push(produtos[i]);
-        prejuizo = prejuizo + (produtos[i].quantidade * produtos[i].custo);
-    }
-    if (situacao.classe === "alerta") {
-        vencendo.push(produtos[i]);
-    }
-}
-
-document.getElementById("qtd-vencidos").textContent = vencidos.length;
-document.getElementById("qtd-vencendo").textContent = vencendo.length;
-document.getElementById("valor-prejuizo").textContent = emReais(prejuizo);
-
-// Tabela dos vencidos
-var linhas = "";
-
-for (var j = 0; j < vencidos.length; j++) {
-    var p = vencidos[j];
-    var atraso = diasParaVencer(p.validade) * -1;
-
-    linhas = linhas +
-        '<tr>' +
-        '<td class="codigo esconde-celular">' + p.codigo + '</td>' +
-        '<td class="destaque">' + p.nome + '</td>' +
-        '<td>' + dataParaTexto(p.validade) + '</td>' +
-        '<td class="esconde-celular">' + atraso + ' dia(s)</td>' +
-        '<td>' + p.quantidade + ' ' + p.unidade + '</td>' +
-        '<td class="destaque">' + emReais(p.quantidade * p.custo) + '</td>' +
-        '</tr>';
-}
-
-if (linhas === "") {
-    linhas = '<tr><td colspan="6">Nenhum produto vencido. Estoque em dia.</td></tr>';
-}
-
-document.getElementById("corpo-vencidos").innerHTML = linhas;
-document.getElementById("contagem-vencidos").textContent = vencidos.length + " produto(s)";
-
-// Tabela dos que estão vencendo, do mais urgente para o menos
-vencendo.sort(function (a, b) {
-    return diasParaVencer(a.validade) - diasParaVencer(b.validade);
-});
-
-linhas = "";
-
-for (var k = 0; k < vencendo.length; k++) {
-    var item = vencendo[k];
-    var dias = diasParaVencer(item.validade);
-    var situacaoItem = situacaoDoProduto(item);
-
-    // quanto menos tempo sobra, maior o desconto sugerido
-    var desconto = 15;
-    if (dias <= 2) { desconto = 40; }
-    else if (dias <= 4) { desconto = 25; }
-    else if (dias <= 5) { desconto = 20; }
-
-    linhas = linhas +
-        '<tr>' +
-        '<td class="codigo esconde-celular">' + item.codigo + '</td>' +
-        '<td class="destaque">' + item.nome + '</td>' +
-        '<td>' + dataParaTexto(item.validade) + '</td>' +
-        '<td><span class="etiqueta ' + situacaoItem.classe + '">' + situacaoItem.texto + '</span></td>' +
-        '<td class="esconde-celular">' + item.quantidade + ' ' + item.unidade + '</td>' +
-        '<td class="esconde-celular">' + desconto + '%</td>' +
-        '</tr>';
-}
-
-if (linhas === "") {
-    linhas = '<tr><td colspan="6">Nenhum produto vencendo nos próximos 7 dias.</td></tr>';
-}
-
-document.getElementById("corpo-vencendo").innerHTML = linhas;
-document.getElementById("contagem-vencendo").textContent = vencendo.length + " produto(s)";
-</script>
 
 </body>
 </html>

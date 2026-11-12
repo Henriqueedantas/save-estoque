@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos &ndash; Açougue - SAVE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<div class="sistema">
+
+    <!-- Menu lateral de navegação -->
+    <aside class="menu-lateral">
+
+        <div class="logo">
+            <h1>SAVE</h1>
+            <span class="barra-logo"></span>
+            <p>Sistema de Análise de Validade e Estoque</p>
+        </div>
+
+        <nav>
+                <p class="titulo-grupo">Operação</p>
+                <a href="index.html">Painel</a>
+                <a href="produtos.html" class="ativo">Produtos</a>
+                <a href="cadastrar.html">Cadastrar<span class="so-desktop"> produto</span></a>
+                <a href="movimentacao.html">Movimentação</a>
+                <p class="titulo-grupo">Controle</p>
+                <a href="alertas.html">Alertas<span class="so-desktop"> de validade</span></a>
+                <a href="sobre.html">Sobre<span class="so-desktop"> o sistema</span></a>
+        </nav>
+
+        <div class="menu-rodape">
+            <strong>Supermercado São José</strong>
+            Unidade Centro<br>
+            Hoje: 12/11/2026
+        </div>
+
+    </aside>
+
+    <!-- Área de conteúdo -->
+    <div class="area-conteudo">
+
+        <header class="topo">
+            <div>
+                <h2>Produtos &ndash; Açougue</h2>
+                <p class="subtitulo">2 produtos cadastrados nesta categoria</p>
+            </div>
+            <div class="usuario">
+                <span class="nome">Carlos Daniel</span>
+                <span class="cargo">Encarregado de estoque</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="filtros">
+                <strong>Filtrar:</strong>
+                <a href="produtos.html">Todos</a>
+                <a href="produtos-laticinios.html">Laticínios</a>
+                <a href="produtos-acougue.html" class="filtro-ativo">Açougue</a>
+                <a href="produtos-frios.html">Frios</a>
+                <a href="produtos-estoque-critico.html">Estoque crítico</a>
+            </div>
+
+            <div class="quadro">
+                <div class="quadro-titulo">
+                    Categoria: Açougue
+                    <span class="contagem">2 produto(s)</span>
+                </div>
+                <div class="tabela-rolagem">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="esconde-celular">Código</th>
+                                <th>Produto</th>
+                                <th class="esconde-celular">Categoria</th>
+                                <th>Estoque</th>
+                                <th class="esconde-celular">Nível</th>
+                                <th>Validade</th>
+                                <th>Situação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="codigo esconde-celular">P003</td>
+                            <td class="destaque">Peito de Frango</td>
+                            <td class="esconde-celular">Açougue</td>
+                            <td>15 kg</td>
+                            <td class="esconde-celular"><meter value="15" min="0" max="40" low="12" high="25" optimum="38">15 de 40</meter>
+                            <span class="texto-nivel">15 de 40</span></td>
+                            <td>14/11/2026</td>
+                            <td><span class="etiqueta alerta">2 dias</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P009</td>
+                            <td class="destaque">Linguiça Toscana</td>
+                            <td class="esconde-celular">Açougue</td>
+                            <td>12 kg</td>
+                            <td class="esconde-celular"><meter value="12" min="0" max="30" low="10" high="20" optimum="28">12 de 30</meter>
+                            <span class="texto-nivel">12 de 30</span></td>
+                            <td>17/11/2026</td>
+                            <td><span class="etiqueta alerta">5 dias</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer class="rodape">
+            <span>SAVE &ndash; Sistema de Análise de Validade e Estoque</span>
+            <span>Trabalho de Desenvolvimento Web &ndash; Ciência da Computação &ndash; 2026</span>
+        </footer>
+
+    </div>
+
+</div>
+
+</body>
+</html>

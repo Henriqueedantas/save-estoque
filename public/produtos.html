@@ -36,7 +36,7 @@
         <div class="menu-rodape">
             <strong>Supermercado São José</strong>
             Unidade Centro<br>
-            <span id="data-hoje"></span>
+            Hoje: 12/11/2026
         </div>
 
     </aside>
@@ -47,7 +47,7 @@
         <header class="topo">
             <div>
                 <h2>Produtos em Estoque</h2>
-                <p class="subtitulo">Consulta e filtros do catálogo</p>
+                <p class="subtitulo">10 produtos cadastrados &middot; 302 itens no total</p>
             </div>
             <div class="usuario">
                 <span class="nome">Carlos Daniel</span>
@@ -58,19 +58,17 @@
         <main>
             <div class="filtros">
                 <strong>Filtrar:</strong>
-                <a href="#" class="filtro-ativo" onclick="filtrar('todos', this)">Todos</a>
-                <a href="#" onclick="filtrar('Laticínios', this)">Laticínios</a>
-                <a href="#" onclick="filtrar('Açougue', this)">Açougue</a>
-                <a href="#" onclick="filtrar('Frios', this)">Frios</a>
-                <a href="#" onclick="filtrar('Padaria', this)">Padaria</a>
-                <a href="#" onclick="filtrar('Mercearia', this)">Mercearia</a>
-                <a href="#" onclick="filtrar('critico', this)">Estoque crítico</a>
+                <a href="produtos.html" class="filtro-ativo">Todos</a>
+                <a href="produtos-laticinios.html">Laticínios</a>
+                <a href="produtos-acougue.html">Açougue</a>
+                <a href="produtos-frios.html">Frios</a>
+                <a href="produtos-estoque-critico.html">Estoque crítico</a>
             </div>
 
             <div class="quadro">
                 <div class="quadro-titulo">
-                    <span id="titulo-lista">Todos os produtos</span>
-                    <span class="contagem" id="contagem-lista"></span>
+                    Todos os produtos
+                    <span class="contagem">10 produto(s)</span>
                 </div>
                 <div class="tabela-rolagem">
                     <table>
@@ -85,7 +83,108 @@
                                 <th>Situação</th>
                             </tr>
                         </thead>
-                        <tbody id="corpo-produtos"></tbody>
+                        <tbody>
+                        <tr>
+                            <td class="codigo esconde-celular">P001</td>
+                            <td class="destaque">Leite Integral 1L</td>
+                            <td class="esconde-celular">Laticínios</td>
+                            <td>48 un</td>
+                            <td class="esconde-celular"><meter value="48" min="0" max="60" low="15" high="30" optimum="55">48 de 60</meter>
+                            <span class="texto-nivel">48 de 60</span></td>
+                            <td>18/11/2026</td>
+                            <td><span class="etiqueta alerta">6 dias</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P002</td>
+                            <td class="destaque">Iogurte Natural 170g</td>
+                            <td class="esconde-celular">Laticínios</td>
+                            <td>60 un</td>
+                            <td class="esconde-celular"><meter value="60" min="0" max="80" low="20" high="40" optimum="75">60 de 80</meter>
+                            <span class="texto-nivel">60 de 80</span></td>
+                            <td>25/11/2026</td>
+                            <td><span class="etiqueta ok">Normal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P003</td>
+                            <td class="destaque">Peito de Frango</td>
+                            <td class="esconde-celular">Açougue</td>
+                            <td>15 kg</td>
+                            <td class="esconde-celular"><meter value="15" min="0" max="40" low="12" high="25" optimum="38">15 de 40</meter>
+                            <span class="texto-nivel">15 de 40</span></td>
+                            <td>14/11/2026</td>
+                            <td><span class="etiqueta alerta">2 dias</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P004</td>
+                            <td class="destaque">Pão de Forma 500g</td>
+                            <td class="esconde-celular">Padaria</td>
+                            <td>22 un</td>
+                            <td class="esconde-celular"><meter value="22" min="0" max="40" low="10" high="20" optimum="38">22 de 40</meter>
+                            <span class="texto-nivel">22 de 40</span></td>
+                            <td>10/11/2026</td>
+                            <td><span class="etiqueta vencido">Vencido</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P005</td>
+                            <td class="destaque">Queijo Mussarela</td>
+                            <td class="esconde-celular">Frios</td>
+                            <td>8 kg</td>
+                            <td class="esconde-celular"><meter value="8" min="0" max="25" low="10" high="18" optimum="24">8 de 25</meter>
+                            <span class="texto-nivel">8 de 25</span></td>
+                            <td>16/11/2026</td>
+                            <td><span class="etiqueta alerta">4 dias</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P006</td>
+                            <td class="destaque">Presunto Fatiado</td>
+                            <td class="esconde-celular">Frios</td>
+                            <td>5 kg</td>
+                            <td class="esconde-celular"><meter value="5" min="0" max="20" low="8" high="14" optimum="19">5 de 20</meter>
+                            <span class="texto-nivel">5 de 20</span></td>
+                            <td>09/11/2026</td>
+                            <td><span class="etiqueta vencido">Vencido</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P007</td>
+                            <td class="destaque">Manteiga 200g</td>
+                            <td class="esconde-celular">Laticínios</td>
+                            <td>34 un</td>
+                            <td class="esconde-celular"><meter value="34" min="0" max="45" low="12" high="22" optimum="43">34 de 45</meter>
+                            <span class="texto-nivel">34 de 45</span></td>
+                            <td>20/12/2026</td>
+                            <td><span class="etiqueta ok">Normal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P008</td>
+                            <td class="destaque">Ovos Dúzia</td>
+                            <td class="esconde-celular">Mercearia</td>
+                            <td>70 un</td>
+                            <td class="esconde-celular"><meter value="70" min="0" max="90" low="25" high="45" optimum="85">70 de 90</meter>
+                            <span class="texto-nivel">70 de 90</span></td>
+                            <td>05/12/2026</td>
+                            <td><span class="etiqueta ok">Normal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P009</td>
+                            <td class="destaque">Linguiça Toscana</td>
+                            <td class="esconde-celular">Açougue</td>
+                            <td>12 kg</td>
+                            <td class="esconde-celular"><meter value="12" min="0" max="30" low="10" high="20" optimum="28">12 de 30</meter>
+                            <span class="texto-nivel">12 de 30</span></td>
+                            <td>17/11/2026</td>
+                            <td><span class="etiqueta alerta">5 dias</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P010</td>
+                            <td class="destaque">Requeijão 200g</td>
+                            <td class="esconde-celular">Laticínios</td>
+                            <td>28 un</td>
+                            <td class="esconde-celular"><meter value="28" min="0" max="40" low="12" high="22" optimum="38">28 de 40</meter>
+                            <span class="texto-nivel">28 de 40</span></td>
+                            <td>15/01/2027</td>
+                            <td><span class="etiqueta ok">Normal</span></td>
+                        </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -93,9 +192,9 @@
             <details>
                 <summary>Entenda a coluna Nível</summary>
                 <ul>
-                    <li>A barra compara a quantidade atual com o estoque mínimo cadastrado do produto.</li>
-                    <li>Verde significa quantidade confortável, amarelo significa que está diminuindo e vermelho significa abaixo do mínimo.</li>
-                    <li>A cor é gerada pelo próprio navegador através da tag <strong>meter</strong> do HTML.</li>
+                    <li>A barra compara a quantidade atual com a capacidade da prateleira.</li>
+                    <li>Verde indica quantidade confortável, amarelo indica que está diminuindo e vermelho indica estoque abaixo do mínimo.</li>
+                    <li>A cor é definida pelo próprio navegador através da tag <strong>meter</strong> do HTML, sem uso de JavaScript.</li>
                 </ul>
             </details>
         </main>
@@ -108,90 +207,6 @@
     </div>
 
 </div>
-
-<script src="script.js"></script>
-<script>
-// Mostra a data de hoje no rodapé do menu
-document.getElementById("data-hoje").textContent = "Hoje: " + dataParaTexto(dataComDiferenca(0));
-
-// Desenha a tabela de produtos conforme o filtro escolhido
-function mostrarProdutos(filtro) {
-    var produtos = carregarProdutos();
-    var linhas = "";
-    var quantidade = 0;
-
-    for (var i = 0; i < produtos.length; i++) {
-        var produto = produtos[i];
-
-        // decide se o produto entra na lista
-        var entra = false;
-
-        if (filtro === "todos") {
-            entra = true;
-        } else if (filtro === "critico") {
-            entra = produto.quantidade <= produto.minimo;
-        } else if (produto.categoria === filtro) {
-            entra = true;
-        }
-
-        if (entra === false) {
-            continue;
-        }
-
-        quantidade = quantidade + 1;
-
-        var situacao = situacaoDoProduto(produto);
-        var maximo = produto.minimo * 4;
-        var alto = produto.minimo * 2;
-
-        linhas = linhas +
-            '<tr>' +
-            '<td class="codigo esconde-celular">' + produto.codigo + '</td>' +
-            '<td class="destaque">' + produto.nome + '</td>' +
-            '<td class="esconde-celular">' + produto.categoria + '</td>' +
-            '<td>' + produto.quantidade + ' ' + produto.unidade + '</td>' +
-            '<td class="esconde-celular">' +
-                '<meter value="' + produto.quantidade + '" min="0" max="' + maximo +
-                '" low="' + produto.minimo + '" high="' + alto + '" optimum="' + (maximo - 1) + '"></meter>' +
-                '<span class="texto-nivel">mínimo: ' + produto.minimo + ' ' + produto.unidade + '</span>' +
-            '</td>' +
-            '<td>' + dataParaTexto(produto.validade) + '</td>' +
-            '<td><span class="etiqueta ' + situacao.classe + '">' + situacao.texto + '</span></td>' +
-            '</tr>';
-    }
-
-    if (linhas === "") {
-        linhas = '<tr><td colspan="7">Nenhum produto encontrado neste filtro.</td></tr>';
-    }
-
-    document.getElementById("corpo-produtos").innerHTML = linhas;
-    document.getElementById("contagem-lista").textContent = quantidade + " produto(s)";
-}
-
-// Troca o filtro ao clicar nos botões
-function filtrar(filtro, botao) {
-    // tira o destaque de todos os botões
-    var botoes = document.querySelectorAll(".filtros a");
-    for (var i = 0; i < botoes.length; i++) {
-        botoes[i].className = "";
-    }
-    botao.className = "filtro-ativo";
-
-    if (filtro === "todos") {
-        document.getElementById("titulo-lista").textContent = "Todos os produtos";
-    } else if (filtro === "critico") {
-        document.getElementById("titulo-lista").textContent = "Produtos abaixo do estoque mínimo";
-    } else {
-        document.getElementById("titulo-lista").textContent = "Categoria: " + filtro;
-    }
-
-    mostrarProdutos(filtro);
-    return false;
-}
-
-// Mostra a lista completa ao abrir a página
-mostrarProdutos("todos");
-</script>
 
 </body>
 </html>
