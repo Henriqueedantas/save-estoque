@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos &ndash; Laticínios - SAVE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<div class="sistema">
+
+    <!-- Menu lateral de navegação -->
+    <aside class="menu-lateral">
+
+        <div class="logo">
+            <h1>SAVE</h1>
+            <span class="barra-logo"></span>
+            <p>Sistema de Análise de Validade e Estoque</p>
+        </div>
+
+        <nav>
+                <p class="titulo-grupo">Operação</p>
+                <a href="index.html">Painel</a>
+                <a href="produtos.html" class="ativo">Produtos</a>
+                <a href="cadastrar.html">Cadastrar<span class="so-desktop"> produto</span></a>
+                <a href="movimentacao.html">Movimentação</a>
+                <p class="titulo-grupo">Controle</p>
+                <a href="alertas.html">Alertas<span class="so-desktop"> de validade</span></a>
+                <a href="sobre.html">Sobre<span class="so-desktop"> o sistema</span></a>
+        </nav>
+
+        <div class="menu-rodape">
+            <strong>Supermercado São José</strong>
+            Unidade Centro<br>
+            Hoje: 12/11/2026
+        </div>
+
+    </aside>
+
+    <!-- Área de conteúdo -->
+    <div class="area-conteudo">
+
+        <header class="topo">
+            <div>
+                <h2>Produtos &ndash; Laticínios</h2>
+                <p class="subtitulo">4 produtos cadastrados nesta categoria</p>
+            </div>
+            <div class="usuario">
+                <span class="nome">Carlos Daniel</span>
+                <span class="cargo">Encarregado de estoque</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="filtros">
+                <strong>Filtrar:</strong>
+                <a href="produtos.html">Todos</a>
+                <a href="produtos-laticinios.html" class="filtro-ativo">Laticínios</a>
+                <a href="produtos-acougue.html">Açougue</a>
+                <a href="produtos-frios.html">Frios</a>
+                <a href="produtos-estoque-critico.html">Estoque crítico</a>
+            </div>
+
+            <div class="quadro">
+                <div class="quadro-titulo">
+                    Categoria: Laticínios
+                    <span class="contagem">4 produto(s)</span>
+                </div>
+                <div class="tabela-rolagem">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="esconde-celular">Código</th>
+                                <th>Produto</th>
+                                <th class="esconde-celular">Categoria</th>
+                                <th>Estoque</th>
+                                <th class="esconde-celular">Nível</th>
+                                <th>Validade</th>
+                                <th>Situação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="codigo esconde-celular">P001</td>
+                            <td class="destaque">Leite Integral 1L</td>
+                            <td class="esconde-celular">Laticínios</td>
+                            <td>48 un</td>
+                            <td class="esconde-celular"><meter value="48" min="0" max="60" low="15" high="30" optimum="55">48 de 60</meter>
+                            <span class="texto-nivel">48 de 60</span></td>
+                            <td>18/11/2026</td>
+                            <td><span class="etiqueta alerta">6 dias</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P002</td>
+                            <td class="destaque">Iogurte Natural 170g</td>
+                            <td class="esconde-celular">Laticínios</td>
+                            <td>60 un</td>
+                            <td class="esconde-celular"><meter value="60" min="0" max="80" low="20" high="40" optimum="75">60 de 80</meter>
+                            <span class="texto-nivel">60 de 80</span></td>
+                            <td>25/11/2026</td>
+                            <td><span class="etiqueta ok">Normal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P007</td>
+                            <td class="destaque">Manteiga 200g</td>
+                            <td class="esconde-celular">Laticínios</td>
+                            <td>34 un</td>
+                            <td class="esconde-celular"><meter value="34" min="0" max="45" low="12" high="22" optimum="43">34 de 45</meter>
+                            <span class="texto-nivel">34 de 45</span></td>
+                            <td>20/12/2026</td>
+                            <td><span class="etiqueta ok">Normal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="codigo esconde-celular">P010</td>
+                            <td class="destaque">Requeijão 200g</td>
+                            <td class="esconde-celular">Laticínios</td>
+                            <td>28 un</td>
+                            <td class="esconde-celular"><meter value="28" min="0" max="40" low="12" high="22" optimum="38">28 de 40</meter>
+                            <span class="texto-nivel">28 de 40</span></td>
+                            <td>15/01/2027</td>
+                            <td><span class="etiqueta ok">Normal</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer class="rodape">
+            <span>SAVE &ndash; Sistema de Análise de Validade e Estoque</span>
+            <span>Trabalho de Desenvolvimento Web &ndash; Ciência da Computação &ndash; 2026</span>
+        </footer>
+
+    </div>
+
+</div>
+
+</body>
+</html>
