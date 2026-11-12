@@ -9,8 +9,8 @@ Este projeto **não** segue a stack completa da casa, e isso é intencional:
 
 | Padrão CODE SYSTEM | Aqui | Motivo |
 |---|---|---|
-| TypeScript em `src/` | não existe | o trabalho proíbe JavaScript |
-| Neon Postgres | não existe | sem persistência; os dados são fixos no HTML |
+| TypeScript em `src/` | não existe | o sistema usa JavaScript simples no navegador |
+| Neon Postgres | não existe | a persistência é feita no localStorage do navegador |
 | `SCHEMA.sql` / `SEED.sql` | não existem | não há banco |
 | Cloudflare Workers + `public/` | mantido | hospedagem igual aos outros sistemas |
 
@@ -46,7 +46,7 @@ navegador — o sistema não depende de servidor.
 
 ```
 save-estoque-worker/
-├── public/          # 12 páginas HTML + estilo.css
+├── public/          # 8 páginas HTML + estilo.css + script.js
 ├── DEPLOY.md
 ├── package.json
 └── wrangler.toml

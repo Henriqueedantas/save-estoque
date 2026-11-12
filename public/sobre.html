@@ -36,7 +36,7 @@
         <div class="menu-rodape">
             <strong>Supermercado São José</strong>
             Unidade Centro<br>
-            Hoje: 12/11/2026
+            <span id="data-hoje"></span>
         </div>
 
     </aside>
@@ -47,7 +47,7 @@
         <header class="topo">
             <div>
                 <h2>Sobre o Sistema</h2>
-                <p class="subtitulo">Documentação do projeto &middot; Novembro de 2026</p>
+                <p class="subtitulo">Documentação do projeto</p>
             </div>
             <div class="usuario">
                 <span class="nome">Carlos Daniel</span>
@@ -62,19 +62,18 @@
                 <p>
                     Supermercados perdem dinheiro todos os meses com produtos que vencem na
                     prateleira sem serem vendidos. O prejuízo é duplo: o valor pago ao fornecedor
-                    é perdido e o espaço da gôndola fica ocupado por mercadoria que não vai
-                    gerar receita.
+                    é perdido e o espaço da gôndola fica ocupado por mercadoria que não vai gerar
+                    receita.
                 </p>
                 <p>
-                    Na maioria dos estabelecimentos pequenos esse controle é feito no papel ou na
-                    memória do funcionário, o que faz o problema só ser percebido quando o produto
-                    já está vencido.
+                    Em estabelecimentos pequenos esse controle costuma ser feito no papel, o que
+                    faz o problema só ser percebido quando o produto já está vencido.
                 </p>
                 <p>
-                    O <strong>SAVE</strong> resolve isso colocando a data de validade no centro do
-                    controle de estoque. O sistema classifica cada produto por proximidade do
-                    vencimento e avisa com antecedência quais itens precisam ir para promoção,
-                    permitindo recuperar parte do valor antes que a perda aconteça.
+                    O <strong>SAVE</strong> coloca a data de validade no centro do controle de
+                    estoque. O sistema compara a validade de cada produto com a data atual,
+                    classifica por urgência e avisa com antecedência quais itens precisam ir para
+                    promoção, permitindo recuperar parte do valor antes da perda.
                 </p>
             </div>
 
@@ -82,26 +81,21 @@
 
             <div class="texto">
                 <ul>
-                    <li><strong>Painel de controle:</strong> resumo com total de produtos, itens em estoque e contagem de vencidos e vencendo.</li>
-                    <li><strong>Consulta de produtos:</strong> listagem com nível de estoque, validade e situação de cada item.</li>
-                    <li><strong>Filtros por categoria:</strong> navegação por Laticínios, Açougue, Frios e Estoque crítico.</li>
-                    <li><strong>Cadastro de produtos:</strong> formulário com validação que impede dados inválidos e datas de validade no passado.</li>
-                    <li><strong>Movimentação de estoque:</strong> registro de entrada e saída por reposição, venda, descarte ou devolução.</li>
-                    <li><strong>Alertas de validade:</strong> separação entre vencidos e vencendo em até 7 dias, com estimativa de prejuízo e desconto sugerido.</li>
-                    <li><strong>Telas de confirmação:</strong> retorno visual após cada operação, com sugestão dos próximos passos.</li>
+                    <li><strong>Painel de controle:</strong> números calculados a partir do estoque atual.</li>
+                    <li><strong>Cadastro de produtos:</strong> o produto é salvo e passa a aparecer na listagem, nos alertas e nos totais.</li>
+                    <li><strong>Consulta e filtros:</strong> filtro por categoria e por estoque crítico, aplicado na própria tela.</li>
+                    <li><strong>Movimentação:</strong> entradas somam e saídas subtraem do estoque, com histórico dos lançamentos.</li>
+                    <li><strong>Alertas de validade:</strong> classificação automática pela data de hoje, com prejuízo estimado e desconto sugerido.</li>
+                    <li><strong>Layout responsivo:</strong> menu lateral no computador e barra no topo no celular.</li>
                 </ul>
             </div>
 
             <h3>Tecnologias utilizadas</h3>
 
-            <div class="aviso aviso-info">
-                <strong>Restrição do projeto:</strong> o sistema foi desenvolvido exclusivamente com HTML5 e CSS3, sem JavaScript, frameworks ou bibliotecas externas.
-            </div>
-
             <div class="quadro">
                 <div class="quadro-titulo">
                     Recursos aplicados
-                    <span class="contagem">9 recursos</span>
+                    <span class="contagem">10 recursos</span>
                 </div>
                 <div class="tabela-rolagem">
                     <table>
@@ -114,7 +108,7 @@
                         <tbody>
                             <tr>
                                 <td class="destaque">HTML semântico</td>
-                                <td>Estruturação das páginas com aside, header, nav, main e footer</td>
+                                <td>Estruturação com aside, header, nav, main e footer</td>
                             </tr>
                             <tr>
                                 <td class="destaque">Validação nativa</td>
@@ -122,35 +116,67 @@
                             </tr>
                             <tr>
                                 <td class="destaque">Tag meter</td>
-                                <td>Barra de nível de estoque, com cor definida pelo navegador</td>
-                            </tr>
-                            <tr>
-                                <td class="destaque">Tags details e summary</td>
-                                <td>Blocos de explicação que abrem e fecham sem JavaScript</td>
+                                <td>Barra de nível de estoque comparada com o mínimo do produto</td>
                             </tr>
                             <tr>
                                 <td class="destaque">Flexbox</td>
-                                <td>Layout de duas colunas, cards, barra de filtros e campos de formulário</td>
+                                <td>Layout de duas colunas, cards, filtros e formulários</td>
                             </tr>
                             <tr>
                                 <td class="destaque">Media queries</td>
-                                <td>Dois pontos de quebra, em 900px e 540px, com menu lateral virando barra no topo</td>
+                                <td>Pontos de quebra em 900px e 540px</td>
                             </tr>
                             <tr>
-                                <td class="destaque">Gradiente e sombras</td>
-                                <td>Menu lateral com degradê e cards com sombra para dar profundidade</td>
+                                <td class="destaque">Pseudo-elemento ::before</td>
+                                <td>Faixa colorida na lateral dos cards</td>
                             </tr>
                             <tr>
-                                <td class="destaque">Pseudo-elemento</td>
-                                <td>Faixa colorida na lateral dos cards, criada com ::before</td>
+                                <td class="destaque">Objeto Date</td>
+                                <td>Cálculo de quantos dias faltam para cada produto vencer</td>
                             </tr>
                             <tr>
-                                <td class="destaque">Fonte externa</td>
-                                <td>Tipografia Inter carregada do Google Fonts, com Arial como alternativa</td>
+                                <td class="destaque">Manipulação do DOM</td>
+                                <td>Tabelas e números montados pelo JavaScript a partir dos dados</td>
+                            </tr>
+                            <tr>
+                                <td class="destaque">localStorage</td>
+                                <td>Armazenamento dos produtos e das movimentações no navegador</td>
+                            </tr>
+                            <tr>
+                                <td class="destaque">Eventos de formulário</td>
+                                <td>Cadastro e movimentação tratados no envio do formulário</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+
+            <h3>Como os dados são guardados</h3>
+
+            <div class="texto">
+                <p>
+                    O sistema usa o <strong>localStorage</strong> do navegador, um espaço de
+                    armazenamento que cada site tem disponível na máquina do usuário. Os produtos
+                    e as movimentações ficam gravados ali, então as informações continuam no lugar
+                    mesmo depois de fechar e reabrir o navegador.
+                </p>
+                <p>
+                    A limitação é que o armazenamento pertence ao navegador daquele computador.
+                    Em um sistema de produção, esses dados ficariam em um banco de dados no
+                    servidor, acessível de qualquer máquina e por vários usuários ao mesmo tempo.
+                </p>
+            </div>
+
+            <h3>Restaurar a demonstração</h3>
+
+            <div class="texto">
+                <p>
+                    O botão abaixo apaga os produtos cadastrados e as movimentações feitas,
+                    devolvendo o sistema aos dez produtos originais.
+                </p>
+                <p style="margin-top: 15px;">
+                    <button type="button" onclick="restaurarDados()">Restaurar dados de demonstração</button>
+                </p>
             </div>
 
             <h3>Equipe</h3>
@@ -191,28 +217,16 @@
             <div class="texto">
                 <ul>
                     <li><strong>index.html</strong> &ndash; painel de controle</li>
-                    <li><strong>produtos.html</strong> &ndash; listagem completa</li>
-                    <li><strong>produtos-laticinios.html</strong>, <strong>produtos-acougue.html</strong>, <strong>produtos-frios.html</strong>, <strong>produtos-estoque-critico.html</strong> &ndash; páginas de filtro</li>
+                    <li><strong>produtos.html</strong> &ndash; listagem com filtros</li>
                     <li><strong>cadastrar.html</strong> &ndash; cadastro de produto</li>
                     <li><strong>movimentacao.html</strong> &ndash; entrada e saída de mercadoria</li>
                     <li><strong>alertas.html</strong> &ndash; alertas de validade</li>
-                    <li><strong>sucesso-cadastro.html</strong>, <strong>sucesso-movimentacao.html</strong> &ndash; telas de confirmação</li>
+                    <li><strong>sucesso-cadastro.html</strong> e <strong>sucesso-movimentacao.html</strong> &ndash; confirmações</li>
                     <li><strong>sobre.html</strong> &ndash; esta página</li>
-                    <li><strong>estilo.css</strong> &ndash; folha de estilo compartilhada pelas 12 páginas</li>
+                    <li><strong>estilo.css</strong> &ndash; folha de estilo compartilhada</li>
+                    <li><strong>script.js</strong> &ndash; funções do sistema</li>
                 </ul>
             </div>
-
-            <h3>Limitações da versão atual</h3>
-
-            <details>
-                <summary>Ver o que ficou fora desta etapa</summary>
-                <ul>
-                    <li>Os dados exibidos são fixos no código, usados para demonstrar o funcionamento das telas.</li>
-                    <li>O sistema não armazena informação entre sessões, pois isso exigiria banco de dados e linguagem de programação no servidor.</li>
-                    <li>Os formulários validam os dados e confirmam o envio, mas não gravam o registro.</li>
-                    <li>Em uma próxima etapa, a persistência poderia ser implementada com PHP e MySQL, mantendo a mesma interface já construída.</li>
-                </ul>
-            </details>
         </main>
 
         <footer class="rodape">
@@ -223,6 +237,13 @@
     </div>
 
 </div>
+
+<script src="script.js"></script>
+<script>
+// Mostra a data de hoje no rodapé do menu
+document.getElementById("data-hoje").textContent = "Hoje: " + dataParaTexto(dataComDiferenca(0));
+
+</script>
 
 </body>
 </html>

@@ -36,7 +36,7 @@
         <div class="menu-rodape">
             <strong>Supermercado São José</strong>
             Unidade Centro<br>
-            Hoje: 12/11/2026
+            <span id="data-hoje"></span>
         </div>
 
     </aside>
@@ -47,7 +47,7 @@
         <header class="topo">
             <div>
                 <h2>Cadastro Concluído</h2>
-                <p class="subtitulo">Confirmação da operação em 12/11/2026</p>
+                <p class="subtitulo">Confirmação da operação</p>
             </div>
             <div class="usuario">
                 <span class="nome">Carlos Daniel</span>
@@ -59,10 +59,7 @@
             <div class="sucesso">
                 <span class="selo">&#10003;</span>
                 <h3>Produto cadastrado com sucesso</h3>
-                <p>
-                    O produto foi registrado no sistema e já entra na análise de validade.
-                    O código foi gerado automaticamente seguindo a sequência do cadastro.
-                </p>
+                <p id="texto-produto">O produto foi registrado no sistema e já entra na análise de validade.</p>
 
                 <div class="botoes">
                     <a href="cadastrar.html" class="botao-link">Cadastrar outro produto</a>
@@ -71,9 +68,9 @@
                 </div>
 
                 <ul class="passos">
-                    <li>Registre a entrada da mercadoria na tela de Movimentação.</li>
-                    <li>Confira se a data de validade cadastrada confere com a embalagem.</li>
-                    <li>Se o produto vencer em menos de 7 dias, ele aparecerá em Alertas.</li>
+                    <li>O produto já aparece na listagem e nos números do painel.</li>
+                    <li>Se vencer em menos de 7 dias, ele entra automaticamente em Alertas.</li>
+                    <li>Registre a entrada da mercadoria na tela de Movimentação quando ela chegar.</li>
                 </ul>
             </div>
         </main>
@@ -86,6 +83,20 @@
     </div>
 
 </div>
+
+<script src="script.js"></script>
+<script>
+// Mostra a data de hoje no rodapé do menu
+document.getElementById("data-hoje").textContent = "Hoje: " + dataParaTexto(dataComDiferenca(0));
+
+// Mostra qual produto acabou de ser cadastrado
+var ultimo = localStorage.getItem("save_ultimo_cadastro");
+
+if (ultimo) {
+    document.getElementById("texto-produto").innerHTML =
+        "O produto <strong>" + ultimo + "</strong> foi registrado no sistema e já entra na análise de validade.";
+}
+</script>
 
 </body>
 </html>
